@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import { ThemeModeScript } from "flowbite-react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import RecoilContextProvider from "./lib/RecoilContextProvider";
+import Footer from "@/components/Footer";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +25,11 @@ export default function RootLayout({
         <ThemeModeScript />
       </head>
       <body className={inter.className}>
+        <RecoilContextProvider>
         <Navbar/>
         {children}
+        <Footer/>
+        </RecoilContextProvider>
       </body>
     </html>
   );
